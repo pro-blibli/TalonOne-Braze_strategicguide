@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talon.One + Braze: Strategic Proposal for KFC Thailand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* KFC Brand Colors */
+            --kfc-red: #E4002B;
+            --kfc-white: #FFFFFF;
+            --kfc-black: #202124;
+            --kfc-gray: #54585A;
+            --kfc-light-gray: #F5F5F5;
+            --kfc-border: #E0E0E0;
+            
+            /* Accent Colors */
+            --accent-blue: #2E75B6;
+            --accent-green: #00A300;
+            --success-bg: #E7F4E4;
+            --warning-bg: #FFF3E0;
+            --error-bg: #FFEBEE;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--kfc-black);
+            background-color: var(--kfc-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--kfc-red) 0%, #C8102E 100%);
+            color: var(--kfc-white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .tagline {
+            font-size: 1.125rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+
+        /* Navigation */
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            background: var(--kfc-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom: 3px solid var(--kfc-red);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: var(--kfc-gray);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--kfc-red);
+            color: var(--kfc-white);
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--kfc-red);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--kfc-red);
+        }
+
+        h3 {
+            font-size: 1.875rem;
+            color: var(--kfc-black);
+            margin: 40px 0 20px 0;
+        }
+
+        h4 {
+            font-size: 1.375rem;
+            color: var(--accent-blue);
+            margin: 30px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: var(--kfc-white);
+            border: 2px solid var(--kfc-border);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(228,0,43,0.15);
+            border-color: var(--kfc-red);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card h4 {
+            color: var(--kfc-red);
+            margin-top: 0;
+        }
+
+        /* Highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFE5E5 100%);
+            border-left: 5px solid var(--kfc-red);
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: var(--success-bg);
+            border-left: 5px solid var(--accent-green);
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border-left: 5px solid #F57C00;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        /* Lists */
+        ul {
+            margin: 20px 0 20px 30px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        li strong {
+            color: var(--kfc-red);
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--kfc-white);
+        }
+
+        thead {
+            background: var(--kfc-red);
+            color: var(--kfc-white);
+        }
+
+        th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.0625rem;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid var(--kfc-border);
+            font-size: 1.0625rem;
+        }
+
+        tbody tr:hover {
+            background-color: #FFF5F5;
+        }
+
+        tbody tr.success-row {
+            background-color: var(--success-bg);
+        }
+
+        tbody tr.warning-row {
+            background-color: #FFEBEE;
+        }
+
+        .comparison-table th:first-child {
+            background: var(--kfc-black);
+        }
+
+        /* Use Case Sections */
+        .use-case {
+            background: var(--kfc-light-gray);
+            border-radius: 12px;
+            padding: 35px;
+            margin: 30px 0;
+            border: 2px solid var(--kfc-border);
+        }
+
+        .use-case h4 {
+            color: var(--kfc-red);
+            margin-top: 0;
+        }
+
+        .scenario-label {
+            display: inline-block;
+            background: var(--kfc-red);
+            color: var(--kfc-white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, var(--kfc-red) 0%, #C8102E 100%);
+            color: var(--kfc-white);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(228,0,43,0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.0625rem;
+            opacity: 0.95;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--kfc-black) 0%, var(--kfc-gray) 100%);
+            color: var(--kfc-white);
+            padding: 60px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-section h3 {
+            color: var(--kfc-white);
+            margin-top: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--kfc-red);
+            color: var(--kfc-white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(228,0,43,0.4);
+        }
+
+        .cta-button:hover {
+            background: #C8102E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(228,0,43,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--kfc-black);
+            color: var(--kfc-white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.875rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .card-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 12px 10px;
+            }
+        }
+
+        /* Icons */
+        .icon {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .badge-success {
+            background: var(--success-bg);
+            color: var(--accent-green);
+        }
+
+        .badge-error {
+            background: var(--error-bg);
+            color: #C00000;
+        }
+
+        .comparison-icon {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>TALON.ONE + BRAZE INTEGRATION</h1>
+            <p class="subtitle">Strategic Proposal for KFC Thailand</p>
+            <p class="tagline">Why Talon.One Outperforms Native Braze Promotions & All-in-One Marketing Suites</p>
+        </div>
+    </header>
+
+    <div class="nav-sticky">
+        <nav>
+            <a href="#executive-summary">Executive Summary</a>
+            <a href="#performance">Performance</a>
+            <a href="#resilience">Integration Resilience</a>
+            <a href="#flexibility">Rule Flexibility</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#use-cases">Use Cases</a>
+            <a href="#roi">ROI Impact</a>
+            <a href="#comparison">Comparison</a>
+            <a href="#next-steps">Next Steps</a>
+        </nav>
+    </div>
+
+    <main class="container">
+        <!-- Executive Summary -->
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>KFC Thailand's marketing team needs a promotion engine that can execute sophisticated, real-time campaigns at scale. While Braze excels at customer engagement and messaging orchestration, its native promotion capabilities face critical limitations when compared to purpose-built solutions like Talon.One.</p>
+            
+            <p>This proposal demonstrates why integrating Talon.One with your existing Braze platform delivers superior outcomes compared to relying solely on Braze's native promotion features or considering all-in-one marketing suites.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h4>Sub-100ms Response Times</h4>
+                    <p>20x faster than Braze's 2-second Connected Content timeout threshold, ensuring zero failed coupon deliveries during peak campaigns</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h4>Limitless Rule Flexibility</h4>
+                    <p>Build context-aware promotions combining any data points in minutes—campaigns that require months in template-based systems</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h4>Superior Integration Resilience</h4>
+                    <p>10-attempt webhook retry with exponential backoff versus less than 5-attempt windows—99.9%+ automatic recovery rate</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h4>Marketer Self-Service</h4>
+                    <p>Simple API key authentication enables campaign launches without engineering sprints—no complex OAuth token management</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Gap -->
+        <section id="performance">
+            <h2>1. The Performance Gap: Why Speed Matters</h2>
+            
+            <h3>Braze's Connected Content Timeout Challenge</h3>
+            <p>Braze's Connected Content feature has a hard <strong>2-second timeout</strong> for API calls. If an external promotion system doesn't respond within 2 seconds, the call fails and messages send without dynamic content—resulting in emails with missing coupon codes or broken personalization.</p>
+
+            <div class="highlight-box">
+                <h4>Real-World Scenario: Flash Friday Campaign</h4>
+                <p><strong>KFC Thailand launches a 'Flash Friday' campaign sending 500,000 promotional emails.</strong> Each email uses Connected Content to fetch a personalized 20% off code.</p>
+                <ul>
+                    <li><strong>❌ With Legacy Systems (&gt;2s response):</strong> Timeouts cascade. Emails send with '[ERROR: TIMEOUT]' instead of discount codes. Customers complain on social media. Campaign ROI collapses.</li>
+                    <li><strong>✅ With Talon.One (&lt;100ms response):</strong> All 500,000 emails send successfully with unique codes. No timeouts. No errors. Campaign delivers full ROI with 99.99% delivery success rate.</li>
+                </ul>
+            </div>
+
+            <h3>Technical Architecture: Built for Speed</h3>
+            <p>Talon.One achieves sub-100ms latency through:</p>
+            <ul>
+                <li><strong>Global Edge Network:</strong> API requests route to the nearest data center, minimizing network latency</li>
+                <li><strong>Optimized Rule Engine:</strong> Rule evaluation happens in microseconds, even with complex conditional logic</li>
+                <li><strong>Auto-Scaling Infrastructure:</strong> Handles traffic spikes during peak hours (Thailand dinner rush 6-8 PM) without performance degradation</li>
+            </ul>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">&lt;100ms</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">20x</div>
+                    <div class="stat-label">Faster than Timeout</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">99.99%</div>
+                    <div class="stat-label">Delivery Success</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Requests/Second</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integration Resilience -->
+        <section id="resilience">
+            <h2>2. Integration Resilience: Zero Silent Failures</h2>
+            
+            <h3>The Webhook Retry Problem in Enterprise Platforms</h3>
+            <p>When a customer earns loyalty points, the promotion system must notify Braze to trigger a 'Points Earned!' message. If the webhook fails (network issues, Braze maintenance), what happens?</p>
+
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>System</th>
+                            <th>Retry Strategy</th>
+                            <th>Recovery Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="warning-row">
+                            <td><strong>Legacy Platforms</strong></td>
+                            <td>&lt; 5 attempts with 24-hour TTL, completing all retries in ~3 minutes (1s, 2s, 4s, 8s intervals)</td>
+                            <td><span class="comparison-icon">❌</span> System gives up before Braze recovers (10-30 min typical). <strong>Result: 3-5% silent failure rate</strong>, thousands of missed notifications</td>
+                        </tr>
+                        <tr class="success-row">
+                            <td><strong>Talon.One</strong></td>
+                            <td>10 attempts with exponential backoff (5m, 10m, 20m, 40m, 80m intervals). No TTL cap</td>
+                            <td><span class="comparison-icon">✅</span> Succeeds on attempt #4 (35 minutes total). <strong>Result: 99.9%+ automatic recovery</strong>, near-zero silent failures</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="success-box">
+                <h4>Why This Matters for KFC Thailand</h4>
+                <p>During infrastructure incidents (network hiccups, planned maintenance, traffic spikes), enterprise platforms inherit retry policies optimized for email delivery (seconds), not cross-system integration where 10-30 minute recovery is normal.</p>
+                <p><strong>Talon.One's patient retry strategy</strong> matches distributed systems reality, ensuring loyalty programs appear reliable to customers even during temporary technical issues—with zero manual intervention required from your team.</p>
+            </div>
+        </section>
+
+        <!-- Rule Flexibility -->
+        <section id="flexibility">
+            <h2>3. Rule Flexibility: Beyond Template Restrictions</h2>
+            
+            <h3>Template-Based Systems vs. Limitless Rule Builder</h3>
+            <p>Traditional marketing platforms restrict promotions to rigid templates: '10% off all orders,' 'Buy one get one free,' etc. Custom logic requires months of engineering work.</p>
+
+            <p><strong>Talon.One's Rule Builder enables any data point to trigger promotion logic:</strong></p>
+
+            <ul>
+                <li><strong>Time Context:</strong> '2x loyalty points for family meals ordered 6-8 PM' (peak dinner rush)</li>
+                <li><strong>SKU Combinations:</strong> 'Buy 2 Zinger Burgers between 2-4 PM, get free Pepsi' (specific product + time window)</li>
+                <li><strong>Churn Prevention:</strong> 'Previously churned customers ordering family meals during peak hours automatically receive 3x bonus points'</li>
+                <li><strong>Location + Tier:</strong> 'Gold tier members in Sukhumvit area ordering >500 THB get exclusive secret menu items'</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Campaign Velocity Comparison</h4>
+                <p><strong>Time to launch:</strong> "Silver Tier Members with last order &lt; 7 days, current Buy 5 Zinger challenge progress &gt; 3, ordering min 2 buckets &amp; audience = Frequent Buyer, then give 2x points on each bucket and 5% discount on Fries"</p>
+                <ul>
+                    <li><strong>Template-Based Systems:</strong> Impossible without custom development. <span class="badge badge-error">8-12 weeks</span></li>
+                    <li><strong>Talon.One Rule Builder:</strong> 5 minutes for a marketer to configure in the UI. <span class="badge badge-success">Same day launch</span></li>
+                </ul>
+                <p style="margin-top: 20px;"><em>This <strong>100x speed advantage</strong> transforms marketing agility. Your team can test creative promotion strategies, respond to competitor moves, and capitalize on trending moments—all without waiting for development cycles.</em></p>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section id="architecture">
+            <h2>4. Integration Architecture: Best-of-Breed vs. All-in-One</h2>
+            
+            <h3>Why Headless Wins for Promotion Management</h3>
+            <p>All-in-one marketing suites promise convenience but create strategic lock-in:</p>
+            
+            <ul>
+                <li><strong>Data Silos:</strong> Customer data, promotion history, and engagement metrics trapped in vendor ecosystem</li>
+                <li><strong>Redundant Features:</strong> Bundled tools you don't need, increasing licensing costs without value</li>
+                <li><strong>Migration Risk:</strong> Switching away requires re-building entire martech stack, not just one component</li>
+                <li><strong>Innovation Lag:</strong> Waiting for vendor to build features vs. plugging in best-in-class specialized tools</li>
+            </ul>
+
+            <h3>Talon.One's API-First Approach</h3>
+            <p>Talon.One acts as a specialized 'promotion brain' that plugs directly into your existing Braze infrastructure:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>No Data Silos</h4>
+                    <p>Bidirectional sync keeps Braze and Talon.One in perfect harmony. Customer segments, loyalty balances, and redemption events flow seamlessly between systems.</p>
+                </div>
+                <div class="card">
+                    <h4>Stack Evolution</h4>
+                    <p>KFC Thailand can evolve your engagement platform, data warehouse, or e-commerce system independently. Talon.One adapts to whatever stack changes you make.</p>
+                </div>
+                <div class="card">
+                    <h4>Future-Proof</h4>
+                    <p>If you ever migrate away from Braze, Talon.One integrates with any replacement platform. Your promotion logic remains intact.</p>
+                </div>
+                <div class="card">
+                    <h4>Best-in-Class Each Layer</h4>
+                    <p>Braze for engagement orchestration, Talon.One for promotion intelligence—each system doing what it does best.</p>
+                </div>
+            </div>
+
+            <h3>Integration Simplicity: API Keys vs. OAuth Complexity</h3>
+            
+            <div class="warning-box">
+                <h4>❌ The OAuth Burden in Legacy Platforms</h4>
+                <p>Many enterprise platforms use OAuth tokenization, requiring:</p>
+                <ul style="margin-top: 15px;">
+                    <li>Multi-step token exchange flows (client_id, client_secret, authorization endpoints)</li>
+                    <li>Token expiration management (tokens expire every 1-24 hours, requiring automated refresh)</li>
+                    <li>Separate tokens for different scopes (one for coupons, another for loyalty, another for profiles)</li>
+                    <li>Complex error handling (expired tokens mid-campaign cause cascading failures)</li>
+                    <li>Dedicated backend services (to manage token lifecycle and renewal)</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Result: OAuth integration requires dedicated engineering resources and adds operational complexity.</strong></p>
+            </div>
+
+            <div class="success-box">
+                <h4>✅ Talon.One's Simple API Key Approach</h4>
+                <ul>
+                    <li><strong>Single API key</strong> provides access to all endpoints (customer profiles, coupons, loyalty, audiences, campaigns)</li>
+                    <li><strong>Configure once</strong> in Braze's Global Settings, reference across all webhooks and Connected Content calls</li>
+                    <li><strong>No expiration management</strong> — keys remain valid until rotated (which can be done without downtime)</li>
+                    <li><strong>Marketer self-service</strong> — marketing teams configure integrations directly in Braze without engineering support</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>This simplicity dramatically reduces time-to-value and eliminates a major operational burden for your technical teams.</strong></p>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section id="use-cases">
+            <h2>5. Real-World KFC Thailand Use Cases</h2>
+            
+            <div class="use-case">
+                <span class="scenario-label">USE CASE 1</span>
+                <h4>Flash Friday Campaigns</h4>
+                <p><strong>Scenario:</strong> Every Friday at 5 PM, KFC Thailand announces a 2-hour flash sale via Braze push notifications. First 10,000 customers get 30% off family meals.</p>
+                
+                <p><strong>Challenge:</strong> 300,000+ customers receive the push simultaneously. Each notification includes a Connected Content call to check coupon availability and generate unique codes.</p>
+                
+                <p><strong>With Talon.One:</strong></p>
+                <ul>
+                    <li>Sub-100ms response times handle the traffic spike without timeouts</li>
+                    <li>First 10,000 customers receive unique codes; the rest get 'Sold out, try next week!' message</li>
+                    <li>Real-time inventory validation prevents overselling (11th customer can't redeem even if they screenshot someone else's code)</li>
+                    <li>Campaign analytics show exactly which 10,000 customers redeemed, attribution to Braze push campaign, and basket uplift data</li>
+                </ul>
+            </div>
+
+            <div class="use-case">
+                <span class="scenario-label">USE CASE 2</span>
+                <h4>Intelligent Churn Prevention</h4>
+                <p><strong>Scenario:</strong> A previously churned customer places their first return order—a family meal during peak dinner hours (7 PM).</p>
+                
+                <p><strong>Talon.One Real-Time Logic:</strong></p>
+                <ul>
+                    <li><strong>Customer Status:</strong> Previously churned (last order >90 days ago)</li>
+                    <li><strong>Order Type:</strong> Family meal (high value, indicates dining occasion, not solo snack)</li>
+                    <li><strong>Time Context:</strong> Peak dinner hours (7-9 PM window)</li>
+                    <li><strong>Action:</strong> Automatically award 3x bonus loyalty points (150 points instead of 50)</li>
+                    <li><strong>Braze Trigger:</strong> Instant push notification: "Welcome back! You've earned 150 bonus points on this family meal. Your next order is even more rewarding!"</li>
+                </ul>
+                
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <p><strong>Why This Is Impossible in Template Systems:</strong></p>
+                    <p>Legacy platforms can't combine multiple real-time signals (churn status + order type + time context + behavior) into a single automated rule. They require separate batch jobs, manual segmentation, or miss the opportunity entirely. Talon.One makes this contextual intelligence instant and automatic.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI & Business Impact -->
+        <section id="roi">
+            <h2>6. ROI & Business Impact</h2>
+            
+            <h3>Quantifiable Benefits for KFC Thailand</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>💰 Revenue Growth</h4>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>Increase</strong> in promotion-driven conversions</li>
+                        <li><strong>Higher</strong> average order value</li>
+                        <li><strong>Improvement</strong> in customer lifetime value</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>💵 Cost Efficiency</h4>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>Reduction</strong> in promotion leakage</li>
+                        <li><strong>Decrease</strong> in engineering overhead</li>
+                        <li><strong>Margin protection</strong> through precise discount controls</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>⚡ Operational Agility</h4>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>5 minutes vs. 8-12 weeks</strong> campaign launch time</li>
+                        <li><strong>10x faster</strong> test & iterate cycles</li>
+                        <li><strong>Same-day response</strong> to competitor moves</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>😊 Customer Experience</h4>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>Zero promotion errors</strong> or failed deliveries</li>
+                        <li><strong>Personalized offers</strong> feel 'just for me'</li>
+                        <li><strong>Seamless omnichannel</strong> consistency</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitive Comparison -->
+        <section id="comparison">
+            <h2>7. Competitive Comparison Summary</h2>
+            
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Capability</th>
+                            <th>Talon.One + Braze</th>
+                            <th>All-in-One Suites</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>API Response Time</strong></td>
+                            <td class="success-row"><strong>Sub-100ms</strong> (20x faster than timeout)</td>
+                            <td>Variable, often >2s during peak traffic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rule Flexibility</strong></td>
+                            <td class="success-row"><strong>Limitless</strong> (any data point can trigger rules)</td>
+                            <td>Restricted to rigid templates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Campaign Launch Speed</strong></td>
+                            <td class="success-row"><strong>5 minutes</strong> (marketer self-service)</td>
+                            <td>8-12 weeks for custom logic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Webhook Retry Logic</strong></td>
+                            <td class="success-row"><strong>10 attempts</strong>, exponential backoff, 99.9%+ recovery</td>
+                            <td>&lt; 5 attempts, limited window, 3-5% failure rate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Authentication</strong></td>
+                            <td class="success-row"><strong>Simple API key</strong> (marketer-friendly)</td>
+                            <td>Complex OAuth with token management</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stack Lock-In</strong></td>
+                            <td class="success-row"><strong>None</strong> (headless, integrates with any platform)</td>
+                            <td>High (entire martech stack)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section id="next-steps">
+            <h2>8. Conclusion & Next Steps</h2>
+            
+            <p>KFC Thailand's marketing team deserves promotion technology that matches the sophistication of your customer engagement platform. While Braze excels at orchestrating multi-channel journeys, Talon.One provides the specialized promotion intelligence that transforms those journeys into measurable revenue outcomes.</p>
+
+            <h3>Why Talon.One Is the Strategic Choice</h3>
+            <ul>
+                <li><strong>Performance:</strong> Sub-100ms responses ensure zero failed coupon deliveries during peak campaigns, even when sending to hundreds of thousands of customers simultaneously</li>
+                <li><strong>Flexibility:</strong> Build context-aware promotions combining time-of-day, SKU, loyalty tier, and customer behavior—campaigns that would require months of custom development in template-based systems, launched in minutes</li>
+                <li><strong>Reliability:</strong> Patient retry logic with 99.9%+ automatic recovery ensures loyalty programs appear seamless to customers, even during infrastructure incidents</li>
+                <li><strong>Simplicity:</strong> API key authentication enables marketer self-service without engineering bottlenecks or complex token management</li>
+                <li><strong>Future-Proof:</strong> Headless architecture protects your Braze investment while adding enterprise-grade promotion capabilities, with no vendor lock-in or data silos</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><strong>Prepared for KFC Thailand Marketing Team</strong></p>
+            <p>April 2026</p>
+            <p style="margin-top:
