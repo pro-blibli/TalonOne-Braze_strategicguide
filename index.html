@@ -458,7 +458,6 @@
             <a href="#flexibility">Rule Flexibility</a>
             <a href="#architecture">Architecture</a>
             <a href="#use-cases">Use Cases</a>
-            <a href="#roi">ROI Impact</a>
             <a href="#comparison">Comparison</a>
             <a href="#next-steps">Next Steps</a>
         </nav>
@@ -532,10 +531,6 @@
                 <div class="stat-box">
                     <div class="stat-number">99.99%</div>
                     <div class="stat-label">Delivery Success</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">10,000+</div>
-                    <div class="stat-label">Requests/Second</div>
                 </div>
             </div>
         </section>
@@ -643,28 +638,16 @@
 
             <h3>Integration Simplicity: API Keys vs. OAuth Complexity</h3>
             
-            <div class="warning-box">
-                <h4>❌ The OAuth Burden in Legacy Platforms</h4>
-                <p>Many enterprise platforms use OAuth tokenization, requiring:</p>
-                <ul style="margin-top: 15px;">
-                    <li>Multi-step token exchange flows (client_id, client_secret, authorization endpoints)</li>
-                    <li>Token expiration management (tokens expire every 1-24 hours, requiring automated refresh)</li>
-                    <li>Separate tokens for different scopes (one for coupons, another for loyalty, another for profiles)</li>
-                    <li>Complex error handling (expired tokens mid-campaign cause cascading failures)</li>
-                    <li>Dedicated backend services (to manage token lifecycle and renewal)</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Result: OAuth integration requires dedicated engineering resources and adds operational complexity.</strong></p>
-            </div>
-
+            <p>Unlike other rewards platforms that require complex OAuth tokenization (multi-step token exchanges, expiration management, separate tokens for different scopes), <strong>Talon.One uses simple API key authentication</strong>.</p>
+            
             <div class="success-box">
                 <h4>✅ Talon.One's Simple API Key Approach</h4>
                 <ul>
-                    <li><strong>Single API key</strong> provides access to all endpoints (customer profiles, coupons, loyalty, audiences, campaigns)</li>
-                    <li><strong>Configure once</strong> in Braze's Global Settings, reference across all webhooks and Connected Content calls</li>
-                    <li><strong>No expiration management</strong> — keys remain valid until rotated (which can be done without downtime)</li>
-                    <li><strong>Marketer self-service</strong> — marketing teams configure integrations directly in Braze without engineering support</li>
+                    <li><strong>Single API key</strong> provides access to all endpoints</li>
+                    <li><strong>Configure once</strong> in Braze's Global Settings, reference everywhere</li>
+                    <li><strong>Simple rotation process</strong> — straightforward key management without complex token refresh logic</li>
+                    <li><strong>Marketer self-service</strong> — no engineering support needed</li>
                 </ul>
-                <p style="margin-top: 15px;"><strong>This simplicity dramatically reduces time-to-value and eliminates a major operational burden for your technical teams.</strong></p>
             </div>
         </section>
 
@@ -709,54 +692,9 @@
             </div>
         </section>
 
-        <!-- ROI & Business Impact -->
-        <section id="roi">
-            <h2>6. ROI & Business Impact</h2>
-            
-            <h3>Quantifiable Benefits for KFC Thailand</h3>
-
-            <div class="card-grid">
-                <div class="card">
-                    <h4>💰 Revenue Growth</h4>
-                    <ul style="margin-top: 15px;">
-                        <li><strong>Increase</strong> in promotion-driven conversions</li>
-                        <li><strong>Higher</strong> average order value</li>
-                        <li><strong>Improvement</strong> in customer lifetime value</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h4>💵 Cost Efficiency</h4>
-                    <ul style="margin-top: 15px;">
-                        <li><strong>Reduction</strong> in promotion leakage</li>
-                        <li><strong>Decrease</strong> in engineering overhead</li>
-                        <li><strong>Margin protection</strong> through precise discount controls</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h4>⚡ Operational Agility</h4>
-                    <ul style="margin-top: 15px;">
-                        <li><strong>5 minutes vs. 8-12 weeks</strong> campaign launch time</li>
-                        <li><strong>10x faster</strong> test & iterate cycles</li>
-                        <li><strong>Same-day response</strong> to competitor moves</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h4>😊 Customer Experience</h4>
-                    <ul style="margin-top: 15px;">
-                        <li><strong>Zero promotion errors</strong> or failed deliveries</li>
-                        <li><strong>Personalized offers</strong> feel 'just for me'</li>
-                        <li><strong>Seamless omnichannel</strong> consistency</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
         <!-- Competitive Comparison -->
         <section id="comparison">
-            <h2>7. Competitive Comparison Summary</h2>
+            <h2>6. Competitive Comparison Summary</h2>
             
             <div class="table-wrapper">
                 <table class="comparison-table">
@@ -805,7 +743,7 @@
 
         <!-- Next Steps -->
         <section id="next-steps">
-            <h2>8. Conclusion & Next Steps</h2>
+            <h2>7. Conclusion & Next Steps</h2>
             
             <p>KFC Thailand's marketing team deserves rewards technology that matches the sophistication of your customer engagement platform. While Braze excels at orchestrating multi-channel journeys, Talon.One provides the specialized rewards intelligence that transforms those journeys into measurable revenue outcomes.</p>
 
